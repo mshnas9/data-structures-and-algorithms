@@ -3,10 +3,33 @@
 NOTE: The search algorithm used in your function should be a binary search.
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![whiteboard](./whiteboard.jpg)
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-
+- Create function take sorted array, Integer key to search inside array
+- assign values of mid, low, high from array
+- compare the key with mid value
+    - if equal return the mid index
+    - if key>mid:
+        - low=mid+1, high = high, mid=(high to low )length /2
+    - if key < mid
+        - low = low, high = mid-1, mid=(high to low)length /2
+- repeat steps until reach last element, if key not exist return -1
 ## Solution
-<!-- Show how to run your code, and examples of it in action -->
+```python
+def BinarySearch(arr, n):
+    low = 0
+    high = len(arr) - 1
+    
+    while low <= high:
+        mid = (low + high) // 2
+        
+        if arr[mid] == n:
+            return mid
+        elif arr[mid] < n:
+            low = mid + 1
+        else:
+            high = mid - 1
+    
+    return -1
+```
