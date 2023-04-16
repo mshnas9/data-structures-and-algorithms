@@ -4,16 +4,14 @@ class LinkedList:
         self.head = None
 
     def insert(self,value):
-
         node = Node(value)
-        
         if self.head is None:
             self.head = node
         else:
             current = self.head
             while current.next is not None:
                 current = current.next
-                current.next = node
+            current.next = node
         
     def includes(self,value):
         current = self.head
@@ -27,7 +25,7 @@ class LinkedList:
         current = self.head
         string = ''
         while current is not None:
-            string += f'{{ {current.value} }} -> '
+            string += f'{{ {current.value} }} -> ' 
             current = current.next
         string += 'NULL'
         return string
