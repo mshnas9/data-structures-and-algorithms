@@ -14,7 +14,7 @@ def test_insert():
     assert expected == actual
 #test The head property will properly point to the first node in the linked list
 def test_head():
-    expected = 1
+    expected = 2
     linked_list = LinkedList()
     linked_list.insert(1)
     linked_list.insert(2)
@@ -22,7 +22,7 @@ def test_head():
     assert expected == actual
 # test Can properly insert multiple nodes into the linked list
 def test_insert_multiple_nodes():
-    expected = '{ 1 } -> { 2 } -> { 3 } -> NULL'
+    expected = '{ 3 } -> { 2 } -> { 1 } -> NULL'
     linked_list = LinkedList()
     linked_list.insert(1)
     linked_list.insert(2)
@@ -49,7 +49,7 @@ def test_not_includes():
     assert expected == actual
 # test Can properly return a collection of all the values that exist in the linked list
 def test_return_collection():
-    expected = '{ 1 } -> { 2 } -> { 3 } -> NULL'
+    expected = '{ 3 } -> { 2 } -> { 1 } -> NULL'
     linked_list = LinkedList()
     linked_list.insert(1)
     linked_list.insert(2)
