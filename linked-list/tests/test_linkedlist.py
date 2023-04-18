@@ -1,5 +1,6 @@
-from linkedlist import LinkedList
 import pytest
+from linkedlist import LinkedList
+
 #test Can successfully instantiate an empty linked list
 def test_empty_linked_list():
     excepted = None
@@ -56,3 +57,59 @@ def test_return_collection():
     linked_list.insert(3)
     actual = linked_list.__str__()
     assert expected == actual
+
+def test_append():
+    excepted = 3
+    ll = LinkedList()
+    ll.append(3)
+    actual = ll.head.value
+    assert excepted == actual
+
+def test_multiple_append():
+    excepted = '{ 1 } -> { 2 } -> { 3 } -> NULL'
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    actual = ll.__str__()
+    assert excepted == actual
+
+def test_insert_before():
+    excepted = '{ 1 } -> { 2 } -> { 11 } -> { 3 } -> NULL'
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    ll.insert_before(3,11)
+    actual = ll.__str__()
+    assert excepted == actual
+
+def test_insert_before_first_value():
+    excepted = '{ 11 } -> { 1 } -> { 2 } -> { 3 } -> NULL'
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    ll.insert_before(1,11)
+    actual = ll.__str__()
+
+def test_insert_after():
+    excepted = '{ 1 } -> { 2 } -> { 11 } -> { 3 } -> NULL'
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    ll.insert_after(2,11)
+    actual = ll.__str__()
+    assert excepted == actual
+
+def test_insert_after_last_value():
+    excepted = '{ 1 } -> { 2 } -> { 3 } -> { 11 } -> NULL'
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    ll.insert_after(3,11)
+    actual = ll.__str__()
+    assert excepted == actual
+ 
