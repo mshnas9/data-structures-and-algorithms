@@ -113,3 +113,14 @@ def test_insert_after_last_value():
     actual = ll.__str__()
     assert excepted == actual
  
+
+def test_kof2():
+    excepted = 3
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    ll.append(7)
+    ll.append(9)
+    actual = ll.kth_from_end(1)
+    assert excepted == actual

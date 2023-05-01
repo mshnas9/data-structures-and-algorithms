@@ -5,6 +5,9 @@ Linked List
 ![whiteboard](./whiteboardappend.jpg)
 ![whiteboard](./whiteboardinsertbefore.jpg)
 ![whiteboard](./whiteboardinsertafter.jpg)
+![whiteboard](./kth_from_end.jpg)
+
+
 ## Approach & Efficiency
 - Approach:
 
