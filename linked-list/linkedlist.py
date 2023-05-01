@@ -105,11 +105,13 @@ class LinkedList:
                 current.next = node
 
     def kth_from_end(self, k):
+        if k < 0:
+            return None
         if self.head is None:
             return None
         pointer1 = self.head
         pointer2 = self.head
-        for i in range(k):
+        for i in range(k+1):
             if pointer2 is None:
                 return None
             pointer2 = pointer2.next

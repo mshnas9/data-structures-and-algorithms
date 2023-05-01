@@ -122,5 +122,67 @@ def test_kof2():
     ll.append(3)
     ll.append(7)
     ll.append(9)
-    actual = ll.kth_from_end(1)
+    actual = ll.kth_from_end(2)
     assert excepted == actual
+
+
+def test_kth_from_end_when_k_is_greater_than_length():
+    # Create a linked list [1, 2, 3, 4, 5]
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    ll.append(4)
+    ll.append(5)
+
+    # Test when k is greater than the length of the linked list
+    assert ll.kth_from_end(6) is None
+
+
+def test_kth_from_end_when_k_and_length_are_same():
+    # Create a linked list [1, 2, 3, 4, 5]
+    ll = LinkedList()
+    excepted = None
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    ll.append(4)
+    ll.append(5)
+
+    # Test when k and the length of the list are the same
+    assert ll.kth_from_end(5) == excepted
+
+
+def test_kth_from_end_when_k_is_not_positive():
+    # Create a linked list [1, 2, 3, 4, 5]
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    ll.append(4)
+    ll.append(5)
+
+    # Test when k is not a positive integer
+    assert ll.kth_from_end(-1) is None
+
+
+def test_kth_from_end_when_linked_list_is_of_size_1():
+    # Create a linked list with a single element
+    ll_single = LinkedList()
+    ll_single.append(1)
+
+    # Test when the linked list is of size 1
+    assert ll_single.kth_from_end(0) == 1
+
+
+def test_kth_from_end_happy_path():
+    # Create a linked list [1, 2, 3, 4, 5]
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    ll.append(4)
+    ll.append(5)
+
+    # Test the "Happy Path" scenario where k is in the middle of the linked list
+    assert ll.kth_from_end(2) == 3
