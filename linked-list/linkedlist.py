@@ -105,59 +105,59 @@ class LinkedList:
                 current.next = node
 
 
-def kth_from_end(self, k):
-    """
-    Returns the kth node from the end of the linked list.
+    def kth_from_end(self, k):
+        """
+        Returns the kth node from the end of the linked list.
 
-    Args:
-        k (int): The distance from the end of the linked list to the desired node.
+        Args:
+            k (int): The distance from the end of the linked list to the desired node.
 
-    Returns:
-        The value of the kth node from the end of the linked list, or None if k is negative or the linked list is empty.
+        Returns:
+            The value of the kth node from the end of the linked list, or None if k is negative or the linked list is empty.
 
-    """
+        """
 
-    if k < 0:
-        return None
-    if self.head is None:
-        return None
-    pointer1 = self.head
-    pointer2 = self.head
-    for i in range(k+1):
-        if pointer2 is None:
+        if k < 0:
             return None
-        pointer2 = pointer2.next
-    while pointer2:
-        pointer1 = pointer1.next
-        pointer2 = pointer2.next
-    return pointer1.value
+        if self.head is None:
+            return None
+        pointer1 = self.head
+        pointer2 = self.head
+        for i in range(k+1):
+            if pointer2 is None:
+                return None
+            pointer2 = pointer2.next
+        while pointer2:
+            pointer1 = pointer1.next
+            pointer2 = pointer2.next
+        return pointer1.value
 
 
-def zip_lists(ll1, ll2):
-    """
-    Zips two linked lists together by alternating their nodes.
+    def zip_lists(ll1, ll2):
+        """
+        Zips two linked lists together by alternating their nodes.
 
-    Args:
-        ll1 (LinkedList): The first linked list to be zipped.
-        ll2 (LinkedList): The second linked list to be zipped.
+        Args:
+            ll1 (LinkedList): The first linked list to be zipped.
+            ll2 (LinkedList): The second linked list to be zipped.
 
-    Returns:
-        The head node of the zipped linked list.
+        Returns:
+            The head node of the zipped linked list.
 
-    """
+        """
 
-    if not ll2:
+        if not ll2:
+            return ll1
+
+        current1, current2 = ll1, ll2
+        while current1 and current2:
+            next1, next2 = current1.next, current2.next
+
+            current1.next = current2
+            current2.next = next1
+
+            current1, current2 = next1, next2
+
         return ll1
-
-    current1, current2 = ll1, ll2
-    while current1 and current2:
-        next1, next2 = current1.next, current2.next
-
-        current1.next = current2
-        current2.next = next1
-
-        current1, current2 = next1, next2
-
-    return ll1
 
 
