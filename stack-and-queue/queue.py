@@ -9,7 +9,6 @@ class Queue:
     def enqueue(self, value):
         node = Node(value)
 
-        # if the queue is empty
         if not self.rear:
             self.front = node
             self.rear = node
@@ -18,13 +17,10 @@ class Queue:
             self.rear = node
 
     def dequeue(self):
-        # if the queue is empty
         if self.front == None:
             return "This queue is empty"
-        # if the queue contains only one node
         if self.front == self.rear:
             self.rear = None
-            # self.front = None
         temp = self.front
         self.front = self.front.next
         temp.next = None
