@@ -186,3 +186,27 @@ def test_kth_from_end_happy_path():
 
     # Test the "Happy Path" scenario where k is in the middle of the linked list
     assert ll.kth_from_end(2) == 3
+
+
+def test_zip_lists():
+    # Test empty lists
+    ll1 = LinkedList()
+    ll2 = LinkedList()
+    expected = None
+    actual = LinkedList.zip_lists(ll1, ll2)
+    assert actual == expected
+    # # Test lists of equal length
+    # assert zip_lists([1, 2, 3], ['a', 'b', 'c']) == [
+    #     (1, 'a'), (2, 'b'), (3, 'c')]
+
+    # # Test lists of different lengths
+    # assert zip_lists([1, 2], ['a', 'b', 'c']) == [(1, 'a'), (2, 'b')]
+    # assert zip_lists([1, 2, 3], ['a', 'b']) == [(1, 'a'), (2, 'b')]
+
+    # # Test lists with None values
+    # assert zip_lists([1, None, 3], ['a', 'b', 'c']) == [
+    #     (1, 'a'), (None, 'b'), (3, 'c')]
+
+    # # Test lists with non-integer or non-string values
+    # assert zip_lists([1, 2.5, 3], ['a', True, 'c']) == [
+    #     (1, 'a'), (2.5, True), (3, 'c')]
