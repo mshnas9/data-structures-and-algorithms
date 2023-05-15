@@ -1,6 +1,7 @@
 import pytest
 from linkedlist import LinkedList
 
+
 #test Can successfully instantiate an empty linked list
 def test_empty_linked_list():
     excepted = None
@@ -254,26 +255,71 @@ def test_kth_from_end_happy_path():
     ll.append(5)
     assert ll.kth_from_end(2) == 3
 
+# Test empty lists
+def test_zip_lists():
+    ll1 = LinkedList()
+    ll2 = LinkedList()
+    ll = LinkedList()
+    try:
+        ll.zip_lists(ll1,ll2)
+        assert False  # The test should raise an exception, so this line should not be reached
+    except ValueError:
+        assert True  # The test should raise a ValueError exception
+# Test lists of equal length
+def test_zipping_same_length():
+    ll1 = LinkedList()
+    ll1.insert(1)
+    ll1.insert(3)
+    ll1.insert(5)
 
-# def test_zip_lists():
-#     # Test empty lists
-#     ll1 = LinkedList()
-#     ll2 = LinkedList()
-#     expected = None
-#     actual = LinkedList.zip_lists(ll1, ll2)
-#     assert actual == expected
-#     # # Test lists of equal length
-#     # assert zip_lists([1, 2, 3], ['a', 'b', 'c']) == [
-#     #     (1, 'a'), (2, 'b'), (3, 'c')]
+    ll2 = LinkedList()
+    ll2.insert(2)
+    ll2.insert(4)
+    ll2.insert(6)
 
-#     # # Test lists of different lengths
-#     # assert zip_lists([1, 2], ['a', 'b', 'c']) == [(1, 'a'), (2, 'b')]
-#     # assert zip_lists([1, 2, 3], ['a', 'b']) == [(1, 'a'), (2, 'b')]
+    expected_result = "{ 5 } -> { 6 } -> { 3 } -> { 4 } -> { 1 } -> { 2 } -> NULL"
+    result = LinkedList.zip_lists(ll1, ll2)
+    assert str(result) == expected_result
 
-#     # # Test lists with None values
-#     # assert zip_lists([1, None, 3], ['a', 'b', 'c']) == [
-#     #     (1, 'a'), (None, 'b'), (3, 'c')]
+# Test lists of different lengths
+def test_zipping_different_length():
+    ll1 = LinkedList()
+    ll1.insert(1)
+    ll1.insert(3)
+    ll1.insert(5)
+    ll1.insert(70)
 
-#     # # Test lists with non-integer or non-string values
-#     # assert zip_lists([1, 2.5, 3], ['a', True, 'c']) == [
-#     #     (1, 'a'), (2.5, True), (3, 'c')]
+    ll2 = LinkedList()
+    ll2.insert(2)
+    ll2.insert(4)
+    ll2.insert(6)
+
+    expected_result = "{ 70 } -> { 6 } -> { 5 } -> { 4 } -> { 3 } -> { 2 } -> { 1 } -> NULL"
+    result = LinkedList.zip_lists(ll1, ll2)
+    assert str(result) == expected_result
+
+#Test list with list 1 is empty
+def test_zipping_ll1_empty():
+    ll1 = LinkedList()
+
+    ll2 = LinkedList()
+    ll2.insert(2)
+    ll2.insert(4)
+    ll2.insert(6)
+
+    expected_result = "{ 6 } -> { 4 } -> { 2 } -> NULL"
+    result = LinkedList.zip_lists(ll1, ll2)
+    assert str(result) == expected_result
+
+# Test list with list 2 is empty
+def test_zipping_ll2_empty():
+    ll1 = LinkedList()
+    ll1.insert(11)
+    ll1.insert(12)
+    ll1.insert(13)
+
+    ll2 = LinkedList()
+
+    expected_result = "{ 13 } -> { 12 } -> { 11 } -> NULL"
+    result = LinkedList.zip_lists(ll1, ll2)
+    assert str(result) == expected_result

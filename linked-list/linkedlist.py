@@ -1,4 +1,10 @@
-from node import Node
+class Node:
+    """ A node in a linked list. """
+
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
 
 
 class LinkedList:
@@ -169,7 +175,7 @@ class LinkedList:
         return pointer1.value
 
 
-
+    @staticmethod
     def zip_lists(ll1, ll2):
         """
         Zips two linked lists together by alternating their nodes.
@@ -180,21 +186,21 @@ class LinkedList:
 
         Returns:
             The head node of the zipped linked list.
-
         """
 
-        if not ll2:
+        if not ll1.head and not ll2.head:
+            raise ValueError("Empty Lists!")
+        if not ll1.head:
+            return ll2
+        if not ll2.head:
             return ll1
 
-        current1, current2 = ll1, ll2
+        current1, current2 = ll1.head, ll2.head
         while current1 and current2:
             next1, next2 = current1.next, current2.next
-
             current1.next = current2
             current2.next = next1
 
             current1, current2 = next1, next2
 
         return ll1
-
-
