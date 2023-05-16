@@ -2,6 +2,7 @@ from stack import Stack
 from queue import Queue
 from pseudo_queue import PseudoQueue
 from animal_shelter import AnimalShelter, Dog, Cat
+from stack_queue_brackets import multi_bracket_validation
 import pytest
 
 # push onto a stack
@@ -196,3 +197,16 @@ def test_animal_shelter_empty():
     with pytest.raises(ValueError) as error:
         shelter.dequeue('cat')
     assert str(error.value) == 'No animals available'
+
+#test bracket validation
+# test matching brackets
+def test_bracket_validation_matching():
+    actual = multi_bracket_validation('{}')
+    expected = True
+    assert actual == expected
+
+# test non matching brackets
+def test_bracket_validation_non_matching():
+    actual = multi_bracket_validation('{(})')
+    expected = False
+    assert actual == expected
