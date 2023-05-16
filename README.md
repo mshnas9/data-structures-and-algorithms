@@ -9,6 +9,8 @@
 | 7 	|[linked-list-part 3 / kth from end](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/linked-list/README.md)   | 
 | 8 	|[linked-list-part 3 / Zip Lists](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/linked-list/README.md)   | 
 | 10 	|[Stack and Queue](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/stack-and-queue/README.md)   | 
+| 11 	|[stack-queue-pseudo](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/stack-and-queue/cc11_README.md)   | 
+
 
 
 
