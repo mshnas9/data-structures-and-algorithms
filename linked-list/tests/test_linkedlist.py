@@ -1,6 +1,7 @@
 import pytest
 from linkedlist import LinkedList
 
+
 #test Can successfully instantiate an empty linked list
 def test_empty_linked_list():
     excepted = None
@@ -114,99 +115,211 @@ def test_insert_after_last_value():
     assert excepted == actual
  
 
-def test_kof2():
-    excepted = 3
-    ll = LinkedList()
-    ll.append(1)
-    ll.append(2)
-    ll.append(3)
-    ll.append(7)
-    ll.append(9)
-    actual = ll.kth_from_end(2)
-    assert excepted == actual
+# def test_kof2():
+#     excepted = 3
+#     ll = LinkedList()
+#     ll.append(1)
+#     ll.append(2)
+#     ll.append(3)
+#     ll.append(7)
+#     ll.append(9)
+#     actual = ll.kth_from_end(2)
+#     assert excepted == actual
 
+
+# def test_kth_from_end_when_k_is_greater_than_length():
+#     # Create a linked list [1, 2, 3, 4, 5]
+#     ll = LinkedList()
+#     ll.append(1)
+#     ll.append(2)
+#     ll.append(3)
+#     ll.append(4)
+#     ll.append(5)
+
+#     # Test when k is greater than the length of the linked list
+#     assert ll.kth_from_end(6) is None
+
+
+# def test_kth_from_end_when_k_and_length_are_same():
+#     # Create a linked list [1, 2, 3, 4, 5]
+#     ll = LinkedList()
+#     excepted = None
+#     ll.append(1)
+#     ll.append(2)
+#     ll.append(3)
+#     ll.append(4)
+#     ll.append(5)
+
+#     # Test when k and the length of the list are the same
+#     assert ll.kth_from_end(5) == excepted
+
+
+# def test_kth_from_end_when_k_is_not_positive():
+#     # Create a linked list [1, 2, 3, 4, 5]
+#     ll = LinkedList()
+#     ll.append(1)
+#     ll.append(2)
+#     ll.append(3)
+#     ll.append(4)
+#     ll.append(5)
+
+#     # Test when k is not a positive integer
+#     assert ll.kth_from_end(-1) is None
+
+
+# def test_kth_from_end_when_linked_list_is_of_size_1():
+#     # Create a linked list with a single element
+#     ll_single = LinkedList()
+#     ll_single.append(1)
+
+#     # Test when the linked list is of size 1
+#     assert ll_single.kth_from_end(0) == 1
+
+
+# def test_kth_from_end_happy_path():
+#     # Create a linked list [1, 2, 3, 4, 5]
+#     ll = LinkedList()
+#     ll.append(1)
+#     ll.append(2)
+#     ll.append(3)
+#     ll.append(4)
+#     ll.append(5)
+
+#     # Test the "Happy Path" scenario where k is in the middle of the linked list
+#     assert ll.kth_from_end(2) == 3
 
 def test_kth_from_end_when_k_is_greater_than_length():
-    # Create a linked list [1, 2, 3, 4, 5]
+    """
+    Test the case when k is greater than the length of the linked list.
+    Expected behavior: A ValueError exception should be raised.
+    """
     ll = LinkedList()
     ll.append(1)
     ll.append(2)
     ll.append(3)
     ll.append(4)
     ll.append(5)
-
-    # Test when k is greater than the length of the linked list
-    assert ll.kth_from_end(6) is None
+    try:
+        ll.kth_from_end(6)
+        assert False  # The test should raise an exception, so this line should not be reached
+    except ValueError:
+        assert True  # The test should raise a ValueError exception
 
 
 def test_kth_from_end_when_k_and_length_are_same():
-    # Create a linked list [1, 2, 3, 4, 5]
+    """
+    Test the case when k is equal to the length of the linked list.
+    Expected behavior: A ValueError exception should be raised.
+    """
     ll = LinkedList()
-    excepted = None
     ll.append(1)
     ll.append(2)
     ll.append(3)
     ll.append(4)
     ll.append(5)
-
-    # Test when k and the length of the list are the same
-    assert ll.kth_from_end(5) == excepted
+    try:
+        ll.kth_from_end(5)
+        assert False  # The test should raise an exception, so this line should not be reached
+    except ValueError:
+        assert True  # The test should raise a ValueError exception
 
 
 def test_kth_from_end_when_k_is_not_positive():
-    # Create a linked list [1, 2, 3, 4, 5]
+    """
+    Test the case when k is not a positive integer.
+    Expected behavior: A ValueError exception should be raised.
+    """
     ll = LinkedList()
     ll.append(1)
     ll.append(2)
     ll.append(3)
     ll.append(4)
     ll.append(5)
-
-    # Test when k is not a positive integer
-    assert ll.kth_from_end(-1) is None
-
-
-def test_kth_from_end_when_linked_list_is_of_size_1():
-    # Create a linked list with a single element
-    ll_single = LinkedList()
-    ll_single.append(1)
-
-    # Test when the linked list is of size 1
-    assert ll_single.kth_from_end(0) == 1
+    try:
+        ll.kth_from_end(-1)
+        assert False  # The test should raise an exception, so this line should not be reached
+    except ValueError:
+        assert True  # The test should raise a ValueError exception
 
 
 def test_kth_from_end_happy_path():
-    # Create a linked list [1, 2, 3, 4, 5]
+    """
+    Test the "happy path" scenario where k is in the middle of the linked list.
+    Expected behavior: The value at the kth position from the end of the list should be returned.
+    """
     ll = LinkedList()
     ll.append(1)
     ll.append(2)
     ll.append(3)
     ll.append(4)
     ll.append(5)
-
-    # Test the "Happy Path" scenario where k is in the middle of the linked list
     assert ll.kth_from_end(2) == 3
 
-
+# Test empty lists
 def test_zip_lists():
-    # Test empty lists
     ll1 = LinkedList()
     ll2 = LinkedList()
-    expected = None
-    actual = LinkedList.zip_lists(ll1, ll2)
-    assert actual == expected
-    # # Test lists of equal length
-    # assert zip_lists([1, 2, 3], ['a', 'b', 'c']) == [
-    #     (1, 'a'), (2, 'b'), (3, 'c')]
+    ll = LinkedList()
+    try:
+        ll.zip_lists(ll1,ll2)
+        assert False  # The test should raise an exception, so this line should not be reached
+    except ValueError:
+        assert True  # The test should raise a ValueError exception
+# Test lists of equal length
+def test_zipping_same_length():
+    ll1 = LinkedList()
+    ll1.insert(1)
+    ll1.insert(3)
+    ll1.insert(5)
 
-    # # Test lists of different lengths
-    # assert zip_lists([1, 2], ['a', 'b', 'c']) == [(1, 'a'), (2, 'b')]
-    # assert zip_lists([1, 2, 3], ['a', 'b']) == [(1, 'a'), (2, 'b')]
+    ll2 = LinkedList()
+    ll2.insert(2)
+    ll2.insert(4)
+    ll2.insert(6)
 
-    # # Test lists with None values
-    # assert zip_lists([1, None, 3], ['a', 'b', 'c']) == [
-    #     (1, 'a'), (None, 'b'), (3, 'c')]
+    expected_result = "{ 5 } -> { 6 } -> { 3 } -> { 4 } -> { 1 } -> { 2 } -> NULL"
+    result = LinkedList.zip_lists(ll1, ll2)
+    assert str(result) == expected_result
 
-    # # Test lists with non-integer or non-string values
-    # assert zip_lists([1, 2.5, 3], ['a', True, 'c']) == [
-    #     (1, 'a'), (2.5, True), (3, 'c')]
+# Test lists of different lengths
+def test_zipping_different_length():
+    ll1 = LinkedList()
+    ll1.insert(1)
+    ll1.insert(3)
+    ll1.insert(5)
+    ll1.insert(70)
+
+    ll2 = LinkedList()
+    ll2.insert(2)
+    ll2.insert(4)
+    ll2.insert(6)
+
+    expected_result = "{ 70 } -> { 6 } -> { 5 } -> { 4 } -> { 3 } -> { 2 } -> { 1 } -> NULL"
+    result = LinkedList.zip_lists(ll1, ll2)
+    assert str(result) == expected_result
+
+#Test list with list 1 is empty
+def test_zipping_ll1_empty():
+    ll1 = LinkedList()
+
+    ll2 = LinkedList()
+    ll2.insert(2)
+    ll2.insert(4)
+    ll2.insert(6)
+
+    expected_result = "{ 6 } -> { 4 } -> { 2 } -> NULL"
+    result = LinkedList.zip_lists(ll1, ll2)
+    assert str(result) == expected_result
+
+# Test list with list 2 is empty
+def test_zipping_ll2_empty():
+    ll1 = LinkedList()
+    ll1.insert(11)
+    ll1.insert(12)
+    ll1.insert(13)
+
+    ll2 = LinkedList()
+
+    expected_result = "{ 13 } -> { 12 } -> { 11 } -> NULL"
+    result = LinkedList.zip_lists(ll1, ll2)
+    assert str(result) == expected_result

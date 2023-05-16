@@ -2,7 +2,6 @@ from node import Node
 
 
 class Stack:
-
     def __init__(self):
         self.top = None
         self.size = 0
@@ -15,19 +14,23 @@ class Stack:
         self.size += 1
 
     def pop(self):
-        if self.top is not None:
-            temp = self.top
-            self.top = self.top.next
-            self.size -= 1
-            return temp.value
+        if not self.top:
+            raise ValueError("Empty Stack")
         else:
-            return ("stack is empty")
+            temp = self.top
+            self.size -= 1
+            self.top = self.top.next
+            return temp.value
 
     def peek(self):
-        if self.top:
-            return self.top.value
+        if not self.top:
+            raise ValueError("Empty Stack")
         else:
-            return ("this stack is empty")
+            return self.top.value
 
     def is_empty(self):
-        return self.size == 0
+        if not self.top:
+            return True
+        else:
+            return False
+

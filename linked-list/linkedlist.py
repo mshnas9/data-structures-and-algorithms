@@ -1,4 +1,10 @@
-from node import Node
+class Node:
+    """ A node in a linked list. """
+
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
 
 
 class LinkedList:
@@ -105,34 +111,71 @@ class LinkedList:
                 current.next = node
 
 
+    # def kth_from_end(self, k):
+    #     """
+    #     Returns the kth node from the end of the linked list.
+
+    #     Args:
+    #         k (int): The distance from the end of the linked list to the desired node.
+
+    #     Returns:
+    #         The value of the kth node from the end of the linked list, or None if k is negative or the linked list is empty.
+
+    #     """
+
+    #     if k < 0:
+    #         return None
+    #     if self.head is None:
+    #         return None
+    #     pointer1 = self.head
+    #     pointer2 = self.head
+    #     for i in range(k+1):
+    #         if pointer2 is None:
+    #             return None
+    #         pointer2 = pointer2.next
+    #     while pointer2:
+    #         pointer1 = pointer1.next
+    #         pointer2 = pointer2.next
+    #     return pointer1.value
+    
     def kth_from_end(self, k):
         """
-        Returns the kth node from the end of the linked list.
+        Returns the value of the node that is k positions from the end of the linked list.
 
         Args:
-            k (int): The distance from the end of the linked list to the desired node.
+            k (int): The position from the end of the list (0-indexed).
 
         Returns:
-            The value of the kth node from the end of the linked list, or None if k is negative or the linked list is empty.
+            int: The value of the node at the kth position from the end of the list.
 
+        Raises:
+            ValueError: If k is a negative value or greater than or equal to the length of the list.
         """
-
         if k < 0:
-            return None
-        if self.head is None:
-            return None
+            raise ValueError("Invalid value of k")
+
         pointer1 = self.head
         pointer2 = self.head
-        for i in range(k+1):
+
+        # Move pointer2 k positions ahead
+        for _ in range(k):
             if pointer2 is None:
-                return None
+                raise ValueError("Invalid value of k")
             pointer2 = pointer2.next
-        while pointer2:
+
+        # Check if pointer2 is None, indicating that k is equal to the length of the list
+        if pointer2 is None:
+            raise ValueError("Invalid value of k")
+
+        # Move both pointers until pointer2 reaches the end of the list
+        while pointer2.next:
             pointer1 = pointer1.next
             pointer2 = pointer2.next
+
         return pointer1.value
 
 
+    @staticmethod
     def zip_lists(ll1, ll2):
         """
         Zips two linked lists together by alternating their nodes.
@@ -143,21 +186,21 @@ class LinkedList:
 
         Returns:
             The head node of the zipped linked list.
-
         """
 
-        if not ll2:
+        if not ll1.head and not ll2.head:
+            raise ValueError("Empty Lists!")
+        if not ll1.head:
+            return ll2
+        if not ll2.head:
             return ll1
 
-        current1, current2 = ll1, ll2
+        current1, current2 = ll1.head, ll2.head
         while current1 and current2:
             next1, next2 = current1.next, current2.next
-
             current1.next = current2
             current2.next = next1
 
             current1, current2 = next1, next2
 
         return ll1
-
-
