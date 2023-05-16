@@ -1,6 +1,7 @@
 from stack import Stack
 from queue import Queue
 from pseudo_queue import PseudoQueue
+from animal_shelter import AnimalShelter, Dog, Cat
 import pytest
 
 # push onto a stack
@@ -167,3 +168,31 @@ def test_pseudo_queue():
     actual = queue1.dequeue()
     expected = 1
     assert actual == expected
+
+#test animal shelter
+
+
+def test_animal_shelter():
+    shelter = AnimalShelter()
+    shelter.enqueue(Dog())
+    shelter.enqueue(Cat())
+    shelter.enqueue(Dog())
+    shelter.enqueue(Cat())
+    actual = str(shelter.dequeue('cat'))
+    expected = str(Cat())
+    assert actual == expected
+
+
+def test_animal_shelter_empty():
+    shelter = AnimalShelter()
+    shelter.enqueue(Dog())
+    shelter.enqueue(Cat())
+    shelter.enqueue(Dog())
+    shelter.enqueue(Cat())
+    shelter.dequeue('cat')
+    shelter.dequeue('cat')
+    shelter.dequeue('dog')
+    shelter.dequeue('dog')
+    with pytest.raises(ValueError) as error:
+        shelter.dequeue('cat')
+    assert str(error.value) == 'No animals available'
