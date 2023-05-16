@@ -11,10 +11,14 @@ class PseudoQueue:
 
     def enqueue(self, value):
         """Add an element to the rear of the pseudo queue."""
+        #Big O(1)
+        #Space O(1)
         self.stack1.push(value)
 
     def dequeue(self):
         """Remove and return the element from the front of the pseudo queue."""
+        #Big O(n)
+        #Space O(1)
         if self.stack1.is_empty() and self.stack2.is_empty():
             raise Exception("Queue is empty")
         elif self.stack2.is_empty():
