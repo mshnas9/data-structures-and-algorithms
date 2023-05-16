@@ -1,5 +1,6 @@
 from stack import Stack
 from queue import Queue
+from pseudo_queue import PseudoQueue
 import pytest
 
 # push onto a stack
@@ -156,3 +157,13 @@ def test_peek_on_empty_queue_raises_exception():
         assert False
     except ValueError:
         assert True
+
+#test pseudo queue
+def test_pseudo_queue():
+    queue1 = PseudoQueue()
+    queue1.enqueue(1)
+    queue1.enqueue(2)
+    queue1.enqueue(3)
+    actual = queue1.dequeue()
+    expected = 1
+    assert actual == expected
