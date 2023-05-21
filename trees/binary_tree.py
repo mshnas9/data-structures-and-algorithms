@@ -1,4 +1,3 @@
-# binary tree node
 class Node:
     def __init__(self, data):
         self.data = data
@@ -13,10 +12,7 @@ class BinaryTree:
         self.root = None
 
     def pre_order(self, node=None, array_tree=None):
-        """Recursive function to perform preorder traversal on the tree
-           root >> left >> right
-        """
-
+        """Perform preorder traversal on the tree."""
         if self.root is None:
             raise ValueError("Empty tree")
 
@@ -25,23 +21,18 @@ class BinaryTree:
 
         node = node or self.root
 
-        # Display the data part of the root node
         array_tree.append(node.value)
 
-        # Traverse the left subtree
         if node.left:
             self.pre_order(node.left, array_tree)
 
-        # Traverse the right subtree
         if node.right:
             self.pre_order(node.right, array_tree)
 
         return array_tree
 
     def in_order(self, node=None, array_tree=None):
-        """Recursive function to perform inorder traversal on the tree
-           left >> root >> right
-        """
+        """Perform inorder traversal on the tree."""
         if self.root is None:
             raise ValueError("Empty tree")
 
@@ -61,10 +52,7 @@ class BinaryTree:
         return array_tree
 
     def post_order(self, node=None, array_tree=None):
-        """Recursive function to perform postorder traversal on the tree
-              left >> right >> root
-        """
-
+        """Perform postorder traversal on the tree."""
         if self.root is None:
             raise ValueError("Empty tree")
 
@@ -92,20 +80,23 @@ class BinarySearchTree(BinaryTree):
         """Add a new node with the given value in the correct location in the binary search tree."""
         if self.root is None:
             self.root = Node(value)
-        else:
-            self._add_recursive(self.root, value)
+            return
 
-    def _add_recursive(self, node, value):
-        if value < node.value:
-            if node.left is None:
-                node.left = Node(value)
+        node = self.root
+
+        while True:
+            if value < node.value:
+                if node.left is None:
+                    node.left = Node(value)
+                    return
+                else:
+                    node = node.left
             else:
-                self._add_recursive(node.left, value)
-        else:
-            if node.right is None:
-                node.right = Node(value)
-            else:
-                self._add_recursive(node.right, value)
+                if node.right is None:
+                    node.right = Node(value)
+                    return
+                else:
+                    node = node.right
 
     def contains(self, value):
         """Check if the value is present in the binary search tree."""
