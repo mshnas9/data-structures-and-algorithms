@@ -9,7 +9,10 @@ class BinaryTree:
     """Class to create a binary tree"""
 
     def __init__(self, value=None):
-        self.root = None
+        if value is not None:
+            self.root = Node(value)
+        else:
+            self.root = None
 
     def pre_order(self, node=None, array_tree=None):
         """Perform preorder traversal on the tree."""
