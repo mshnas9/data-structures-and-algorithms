@@ -114,3 +114,25 @@ class BinarySearchTree(BinaryTree):
                 node = node.right
 
         return False
+def find_maximum_value(tree):
+    """Function to find the maximum value in a binary tree."""
+    if tree.root is None:
+        raise ValueError("Empty tree")
+
+    max_value = tree.root.value
+
+    def _walk(node):
+        nonlocal max_value
+
+        if node.value > max_value:
+            max_value = node.value
+
+        if node.left:
+            _walk(node.left)
+
+        if node.right:
+            _walk(node.right)
+
+    _walk(tree.root)
+
+    return max_value
