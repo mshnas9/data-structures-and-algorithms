@@ -9,7 +9,10 @@ class BinaryTree:
     """Class to create a binary tree"""
 
     def __init__(self, value=None):
-        self.root = None
+        if value is not None:
+            self.root = Node(value)
+        else:
+            self.root = None
 
     def pre_order(self, node=None, array_tree=None):
         """Perform preorder traversal on the tree."""
@@ -111,3 +114,25 @@ class BinarySearchTree(BinaryTree):
                 node = node.right
 
         return False
+def find_maximum_value(tree):
+    """Function to find the maximum value in a binary tree."""
+    if tree.root is None:
+        raise ValueError("Empty tree")
+
+    max_value = tree.root.value
+
+    def _walk(node):
+        nonlocal max_value
+
+        if node.value > max_value:
+            max_value = node.value
+
+        if node.left:
+            _walk(node.left)
+
+        if node.right:
+            _walk(node.right)
+
+    _walk(tree.root)
+
+    return max_value
