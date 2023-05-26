@@ -53,6 +53,30 @@ class BinaryTree:
         return arr
 
 
+    def find_maximum_value(self):
+        """Function to find the maximum value in a binary tree."""
+        if self.root is None:
+            raise ValueError("Empty tree")
+
+        max_value = self.root.value
+
+        def _walk(node):
+            nonlocal max_value
+
+            if node.value > max_value:
+                max_value = node.value
+
+            if node.left:
+                _walk(node.left)
+
+            if node.right:
+                _walk(node.right)
+
+        _walk(self.root)
+
+        return max_value
+
+
 class BinarySearchTree(BinaryTree):
     def add(self, value):
         """Add a new node with the given value to the binary search tree."""
