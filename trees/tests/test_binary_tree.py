@@ -83,3 +83,15 @@ def test_contains():
     actual = tree.contains(4)
     assert expected == actual
 
+# Can successfully return the maximum value in the binary search tree
+def test_max_value():
+    tree = BinarySearchTree(Node(5))
+    tree.add(3)
+    tree.add(7)
+    tree.add(2)
+    tree.add(4)
+    tree.add(6)
+    tree.add(8)
+    expected = 8
+    actual = tree.find_maximum_value()
+    assert expected == actual
