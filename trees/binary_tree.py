@@ -1,5 +1,6 @@
 class Node:
     def __init__(self, value):
+        """Initialize a Node object with a given value."""
         self.value = value
         self.right = None
         self.left = None
@@ -7,9 +8,11 @@ class Node:
 
 class BinaryTree:
     def __init__(self, root):
+        """Initialize a BinaryTree object with a given root."""
         self.root = root
 
     def pre_order(self, root):
+        """Traverse the tree in pre-order and return a list of node values."""
         if root is None:
             raise ValueError("Tree is empty")
         arr = []
@@ -22,6 +25,7 @@ class BinaryTree:
         return arr
 
     def in_order(self, root):
+        """Traverse the tree in in-order and return a list of node values."""
         if root is None:
             raise ValueError("Tree is empty")
         arr = []
@@ -35,21 +39,23 @@ class BinaryTree:
             arr += self.in_order(root.right)
         return arr
 
-    def post_order(self,root):
+    def post_order(self, root):
+        """Traverse the tree in post-order and return a list of node values."""
         if root is None:
             raise ValueError("Tree is empty")
         arr = []
         if root.left:
             arr += self.post_order(root.left)
         if root.right:
-            arr += self.in_order(root.right)
+            arr += self.post_order(root.right)
         if root:
             arr.append(root.value)
         return arr
-    
+
 
 class BinarySearchTree(BinaryTree):
     def add(self, value):
+        """Add a new node with the given value to the binary search tree."""
         new_node = Node(value)
         if self.root is None:
             self.root = new_node
@@ -73,6 +79,7 @@ class BinarySearchTree(BinaryTree):
                 return
 
     def contains(self, value):
+        """Check if the binary search tree contains a node with the given value."""
         if self.root is None:
             return False
 

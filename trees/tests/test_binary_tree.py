@@ -57,7 +57,8 @@ def test_post_order():
     assert expected == actual
 
 
-def test_add_node():
+# For a Binary Search Tree, can successfully add a left child and right child properly to a node
+def test_add_left_right():
     tree = BinarySearchTree(Node(5))
     tree.add(3)
     tree.add(7)
@@ -69,6 +70,7 @@ def test_add_node():
     actual = tree.pre_order(tree.root)
     assert expected == actual
 
+# Can successfully return True when finding a value within the binary search tree that exists
 def test_contains():
     tree = BinarySearchTree(Node(5))
     tree.add(3)
@@ -80,3 +82,4 @@ def test_contains():
     expected = True
     actual = tree.contains(4)
     assert expected == actual
+
