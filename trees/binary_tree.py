@@ -75,6 +75,19 @@ class BinaryTree:
         _walk(self.root)
 
         return max_value
+    
+    def  breadth_first(self):
+        """Function to traverse a tree using breadth first approach."""
+        if self.root is None:
+            raise ValueError("Empty tree")
+        arr = []
+        arr.append(self.root)
+        for i in arr:
+            if i.left:
+                arr.append(i.left)
+            if i.right:
+                arr.append(i.right)
+        return [i.value for i in arr]
 
 
 class BinarySearchTree(BinaryTree):
