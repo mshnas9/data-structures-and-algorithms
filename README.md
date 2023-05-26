@@ -12,6 +12,9 @@
 | 11 	|[stack-queue-pseudo](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/stack-and-queue/cc11_README.md)   | 
 | 12 	|[Animal Shelter](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/stack-and-queue/cc12_README.md)   | 
 | 13 	|[stack-queue-brackets](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/stack-and-queue/cc13_README.md)   | 
+| 15 	|[Trees](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/trees/cc15_README.md)   | 
+| 16 	|[Tree Max](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/trees/cc16_README.md)   | 
+
 
 
 
