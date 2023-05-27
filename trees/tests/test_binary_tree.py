@@ -95,3 +95,16 @@ def test_max_value():
     expected = 8
     actual = tree.find_maximum_value()
     assert expected == actual
+
+# Can successfully return a collection from a breadth first traversal
+def test_breadth_first():
+    tree = BinarySearchTree(Node(5))
+    tree.add(3)
+    tree.add(7)
+    tree.add(2)
+    tree.add(4)
+    tree.add(6)
+    tree.add(8)
+    expected = [5, 3, 7, 2, 4, 6, 8]
+    actual = tree.breadth_first()
+    assert expected == actual
