@@ -42,3 +42,10 @@ we complete the same process for the rest of the array
 ### step 5:
 we quit the loop because i is equal to the length of the array, and we append the value to the sorted array
 ![sort](./imgs/7.png)
+
+
+## Efficency
+### Time
+- Best Case: O(n)
+- Average Case: O(n^2)
+- Worst Case: O(n^2)
