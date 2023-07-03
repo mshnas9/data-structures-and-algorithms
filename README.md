@@ -15,7 +15,12 @@
 | 15 	|[Trees](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/trees/cc15_README.md)   | 
 | 16 	|[Tree Max](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/trees/cc16_README.md)   | 
 | 17 	|[First Breadth Tree](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/trees/cc17_README.md)   | 
-| 26 	|[Insert/ Sort](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/insert_sort/README.md)   | 
+| 26 	|[Insert/ Sort](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/sorting/insertion/README.md)   | 
+| 27 	|[Merge/ Sort](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/sorting/merge/README.md)   | 
+| 28 	|[comparison/ Sort](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/comparison/README.md)   | 
+| 30	|[Hashtable](https://github.com/mshnas9/data-structures-and-algorithms/blob/main/hashtable/README.md)   | 
+
+
 
 
 
