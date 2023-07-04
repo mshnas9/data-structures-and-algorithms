@@ -51,6 +51,7 @@ class HashTable:
                 while current:
                     if current.value[0] == key:
                         return True
+                    current = current.next  
                 return False
             else:
                 if self.map[hashed_key][0] == key:
