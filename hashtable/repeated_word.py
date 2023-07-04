@@ -5,7 +5,7 @@ s2 = 'my name is mohamad shareef naser naser'
 def repeated_word(sentence: str):
     """Find the first repeated word in a sentence using a HashTable."""
     ht = HashTable()
-    words = sentence.split(' ')
+    words = sentence.lower().split(' ')  # Split and convert to lowercase
     for word in words:
         if ht.has(word):
             return word
